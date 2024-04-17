@@ -1,10 +1,14 @@
 import React, { useState ,useEffect} from "react";
 import { useNavigate,useLocation } from "react-router-dom"
 
-export default function Login(){
+export default function Login(props: {
+  onTemp(userName: string, email:string, gu:string): void
+}){
+  const [title, setTitle] = useState("");
   const [userName, setName] = useState("");
   const [email, setEmail] = useState("");
   const [showLoginButton,setshowLoginButton] = useState(true);
+  const [gu, setGu] = useState(""); //로그인페이지인지? 회원가입페이지인지 구분
   const {pathname} = useLocation();
   useEffect(() => {
     buttonShow();
@@ -12,10 +16,13 @@ export default function Login(){
 
   const buttonShow =()=>{
     if(pathname==="/login"){
+      setTitle("로그인");
       setshowLoginButton(true);
-
+      setGu('login');
     }else{
+      setTitle("회원가입");
       setshowLoginButton(false);
+      setGu('join');
     }
   }
 
@@ -31,29 +38,24 @@ export default function Login(){
   }
   const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const{
-      currentTarget : {name}
-    }=e;
-
-    if(name==="login"){
-      console.log("로그인로직");
-    }else if(name==="join"){
-      console.log("계정생성로직");
+    if(gu==="login"){
+      console.log("gu"+gu);
+    }else{
+      console.log("gu"+gu);
     }
-
-    const data = {
-      userName,
-      email
-    }
-    console.log(data);
+    //onTemp로 userName,email,gu 보내주기
+    props.onTemp(userName,email,gu) 
   }
   return (
-    <div>
-      <form onSubmit={handleSubmit} >
+    <div className="Common">
+      <form onSubmit={handleSubmit} id="login-form">
+        <div className="LoginTitle">
+          <p>{title}</p>
+        </div>
         <input placeholder="이름" type="text" required value={userName} name="name" onChange={onChange}/>
         <input placeholder="이메일" type="email" required value={email} name="email" onChange={onChange}/>
         {showLoginButton ? 
-        (<input type="submit" value="로그인" name="login"/>)
+        (<input type="submit" value="로그인" name="login" />)
         :(<input type="submit" value="계정생성" name="join"/>)}
       </form>
     </div>

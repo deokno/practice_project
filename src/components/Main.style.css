@@ -1,0 +1,50 @@
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.MainSlideImg{
+  width:420px;
+  height:420px;
+}
+
+.MainContainer{
+  text-align:center;
+  margin-top:50px;
+}
+.MainTitle{
+  display: flex;
+  justify-content: center;
+  height:180px;
+  background-color:#fdf0d5;
+  margin-bottom:40px;
+}
+.MainTitle p {
+  text-align: center;
+}
+.MainBtn{
+  height:80px;
+  //margin-top:30px;
+  //justify-content:center;
+  align-content:center;
+  background-color:#c1d3fe;
+  //animation: heartBeat 1.3s linear infinite;
+}
+.MainBtn a{
+  margin: 0 50px; 
+  display: inline-block;
+  text-align:center;
+  animation: heartBeat 1.5s linear infinite;
+}

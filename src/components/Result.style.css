@@ -1,0 +1,74 @@
+/* @keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(5);
+  }
+  100% {
+    transform: scale(1);
+  }
+} */
+.ResultContainer{
+  //display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:50px;
+}
+.ResultType{
+  text-align:center;
+}
+.ResultType h4{
+  margin: 10px;
+}
+.ResultRestartBtn{
+  justify-content: center;
+  text-align:center;
+}
+.ResultRestartBtn a {
+  font-size:30px;
+  //animation: heartBeat 0.5s linear infinite;
+}
+.ResultCommunity{
+  position: fixed;
+  bottom: 5%;
+  flex-direction: column;
+  width:420px; /*좀헷갈*/
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  position: fixed;
+  font-size:15px;
+  //bottom:30%;
+  //border:1px solid black;
+}
+.CommentList , .CommentInput{
+  width:100%;
+}
+.CommentList{
+  flex-direction: column;
+  display:flex;
+  justify-content:center;
+
+}
+.CommentInput{
+  position: relative;
+}
+.CommentInput Input{
+  padding: 9px 0px;
+  font-size: 15px;
+}
+.CommentInput > :nth-child(1) {
+  
+  width:90%; 
+  margin-right:3px;
+}
+.CommentInput > :nth-child(2) {
+  position: absolute;
+  right:0;
+}
+.ResultTypeImg{
+  width:250px;
+  height:350px;
+}
+

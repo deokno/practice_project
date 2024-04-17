@@ -1,0 +1,20 @@
+@import "./Main.style.css"; /* 메인페이지  */
+@import "./Login.style.css"; /* 로그인, 계정생성 페이지 */ 
+@import "./Question.style.css"; /* 질문페이지 */ 
+@import "./Result.style.css"; /* 결과페이지 */ 
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Ubuntu:ital@0;1&display=swap');
+*
+{
+  font-family: 'Do Hyeon', sans-serif;
+}
+.Common{
+  border-radius:30px;
+  height: 100vh;
+  max-width:420px;
+  margin:auto;
+  font-size: 40px;
+  //background-color:#ffd8be; 
+}
+
+
+
