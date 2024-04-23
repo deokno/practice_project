@@ -18,6 +18,7 @@
 .MainSlideImg{
   width:420px;
   height:420px;
+  margin-bottom:40px;
 }
 
 .MainContainer{
@@ -31,8 +32,11 @@
   background-color:#fdf0d5;
   margin-bottom:40px;
 }
-.MainTitle p {
+.MainTitleText{
   text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 .MainBtn{
   height:80px;

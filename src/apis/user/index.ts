@@ -2,13 +2,20 @@
 import axios from 'axios';
 
 interface Data {
-  isComplete: boolean;
+  status: string;
+  isComplete:boolean;
+  userName:string;
+  resultType:string;
+  sameType:string[];
+  userKey:string;
 }
- const login = async (arg: { userName: string, email: string,gu:string }): Promise<Data> => {
+ const login = async (arg: { email: string,password:string}): Promise<Data> => {
   try {
-    const response = await axios.post('http://192.168.128.125:8080/user',
-      arg,
+    console.log("api호출");
+    const response = await axios.post(`${window.location.origin}/user/loginCheck`,
+      arg
     )
+    console.log("리스폰스"+response.data);
     return response.data;
     // const url = `${host}/api/board/v1/folder/all`;
     // const response = await axios.get(url, { headers, params: arg });

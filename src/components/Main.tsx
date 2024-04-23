@@ -9,7 +9,7 @@ function Main(){
   return (
     <div className="Common MainContainer">
       <div className="MainTitle">
-        <p>이든 업무 유형 테스트</p>
+        <div className="MainTitleText">이든 업무 유형 테스트</div>
       </div>
       <div className="MainImg">
         <img src="/img/img_do.png" className="MainSlideImg"/>

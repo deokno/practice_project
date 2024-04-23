@@ -21,6 +21,9 @@
 .ResultType h4{
   margin: 10px;
 }
+.ResultType p{
+  font-size:20px;
+}
 .ResultRestartBtn{
   justify-content: center;
   text-align:center;
@@ -49,26 +52,62 @@
   flex-direction: column;
   display:flex;
   justify-content:center;
-
+  margin-bottom:10px;
+}
+.Commentbox{
+  border-bottom:1px solid #9DADBC;
+  margin-bottom :2px;
 }
 .CommentInput{
   position: relative;
 }
 .CommentInput Input{
+  border:none;
+  border-radius:10px;
   padding: 9px 0px;
   font-size: 15px;
 }
 .CommentInput > :nth-child(1) {
   
-  width:90%; 
+  width:89%; 
   margin-right:3px;
 }
 .CommentInput > :nth-child(2) {
   position: absolute;
   right:0;
+  background-color: #c1d3fe;
 }
 .ResultTypeImg{
   width:250px;
   height:350px;
 }
+.CommentList_content{
+  display:flex;
+}
+.CommentList_content_input{
+  font-size:15px;
+  border:none;
+  background-color:#e1ecf7;
+}
+.userBtn{
+  margin-left: auto; /*우측정렬*/
+  margin-bottom:3px;
+}
+.userBtn input{
+  background-color:#F5C3BA;
+  border-radius :30px;
+  margin-right:1px;
+  border:none;
+}
+.btnSave{
+  background-color:#F5C3BA;
+  border-radius :20px;
+  border:none;
+  width:35px;
+}
+input:focus {
+  outline: none; /* 포커스 테두리 숨기기. */
+}
+
+
 
