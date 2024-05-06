@@ -1,8 +1,9 @@
 import React, { useState ,useEffect} from "react";
 import { useNavigate,useLocation } from "react-router-dom"
+import TopBar from "./TopBar";
 
 export default function Login(props: {
-  onTemp(userName: string,password:string,email:string): void
+  onLogin(userName: string,password:string,email:string): void
 }){
   const [title, setTitle] = useState("");
   const [userName, setName] = useState("");
@@ -43,13 +44,16 @@ export default function Login(props: {
       setPassword(value);
     }
   }
+  //로그인, 회원가입 버튼 클릭
   const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    //onTemp로 userName,email,gu 보내주기
-    props.onTemp(userName,password,email) 
+    //onLogin로 userName,email,gu 보내주기
+    props.onLogin(userName,password,email) 
+    // setPassword('');
   }
   return (
     <div className="Common">
+      <TopBar/>
       <form onSubmit={handleSubmit} id="login-form">
         <div className="LoginTitle">
           <p>{title}</p>

@@ -1,33 +1,44 @@
 .QuestionPage{
+  /* display: flex;
+  justify-content: center; */
+}
+.QuestionBox{
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 .QuestionContainer{
+  white-space: normal;
   border-radius:30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height:100px;
+  height:150px;
   margin-top:50px;
+  width:500px;
   //background-color:#c0c0c0;
   background-color:#c1d3fe;
-  font-size: 40px;
+  font-size: 28px;
   text-align:center;
   margin-bottom:50px;
 }
 .AnswerContainer {
+  justify-content: center;
+  align-items: center;
   width:300px;
-  //display: flex;
+  display: flex;
   flex-wrap: wrap;
 }
 .Answer{
-  display: flex;
   justify-content: center;
   align-items: center;
   //margin-right :5px;
   //display: inline-block;
 }
 .AnswerBtn{
+  width:200px;
+  height:50px;
   margin-bottom: 10px;
   background-color:#fdf0d5; 
   /* #AAB4BF */
@@ -35,4 +46,26 @@
   display:block;
   border: none;
   border-radius:5px;
+}
+.bottomImg{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-items: center;
+}
+.startBtn{
+  margin-top:300px;
+  /* width:300px; */
+  height:60px;
+  display:flex;
+  justify-content:center;
+  align-content:center;
+  background-color:#c1d3fe;
+  //animation: heartBeat 1.3s linear infinite;
+}
+.startBtn a{
+  margin: 0 50px; 
+  display: inline-block;
+  text-align:center;
+  animation: heartBeat 1.5s linear infinite;
 }

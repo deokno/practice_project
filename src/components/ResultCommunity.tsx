@@ -2,6 +2,7 @@ import React, { useState,useEffect} from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/useStore";
 import commentApi from '../apis/comment';
+import moment from 'moment';
 
 export default function ResultCommunity(){
   const user = useSelector((state: RootState) => state.userInfo)
@@ -14,14 +15,14 @@ export default function ResultCommunity(){
     userName: string;
     commentText: string;
     createdDate: string;
-}[]>([]); // 댓글리스트
+}[]>([]); 
+// 댓글리스트 api 호출
 const getCommentList = async()=>{
   const getComment = await commentApi.getComment();
-  console.log("댓글리스트"+getComment.commentList);
   if(getComment.status==="SUCCESS"){
-   console.log("댓글호출" +getComment.status);
+    //성공시 
    const commentList = getComment.commentList;
-   console.log(commentList);
+   //Comments State 세팅
    setComments(commentList);
   }else{
 
@@ -53,27 +54,25 @@ const getCommentList = async()=>{
     // ];
     //setComments(commentList);
   },[])
+
   //userkey랑 댓글내용
   const btnSave=async(userKey:string)=>{
-    console.log("userKey"+userKey);
     if(commentText!=''){
+      //댓글수정일시
       if(isEdit){
+        //댓글 수정 api호출
         const updateResult = await commentApi.updateComment({commentKey,commentText});
         if(updateResult.status==="SUCCESS"){
-          console.log("댓글수정성공");
           setisEdit(false);
           //getCommentList();
         }
-        // console.log('수정');
-        // console.log(newCommentItem);
         // setComments((prevComments) =>
         //   prevComments.map((comment) => (comment.id === id ? newCommentItem : comment)),
         // );
       }else{
-        console.log("저장로직");
+        //댓글저장
         const saveResult = await commentApi.saveComment({userKey,commentText});
         if(saveResult.status==="SUCCESS"){
-          console.log("댓글저장성공");
           //getCommentList();
         }
       }
@@ -83,23 +82,19 @@ const getCommentList = async()=>{
       alert('댓글을 입력해주세요!');
     }
   }
+
+  //수정버튼
+  //modifycommentKey(수정댓글키),commentText(수정댓글)
   const btnMod=(modifycommentKey:string,commentText:string)=>{
-    console.log(modifycommentKey)
     setisEdit(true);
     setcommentText(commentText);
     setcommentKey(modifycommentKey);
-    // const modCommentItem={
-    //   id:modifyid,
-    //   writer: user.userName,//스토어에서 사용자 가져오기,
-    //   date: '20240416', // 날짜
-    //   content: modifyContent,
-    // }
-    //console.log(modCommentItem);
   }
+
+  //댓글삭제
   const btnDel = async(commentKey:string)=>{
     const deleteResult = await commentApi.delComment({commentKey});
     if(deleteResult.status==="SUCCESS"){
-      console.log("댓글삭제 성공");
       getCommentList();
     }
   }
@@ -109,7 +104,7 @@ const getCommentList = async()=>{
       <div className="CommentList">
         {comment.map(value=>(
           <div key={value.commentKey} className="Commentbox">
-            <span className="CommentList_writer">{value.userName}</span> <span className="CommentList_date">{value.createdDate}</span>
+            <span className="CommentList_writer">{value.userName}</span> <span className="CommentList_date">{moment(value.createdDate).format("YYYY-MM-DD HH:mm:ss")}</span>
             <div className="CommentList_content"><input type="text" value={value.commentText} className="CommentList_content_input"/>
             {value.userName === user.userName && (
               <div className="userBtn">

@@ -1,0 +1,14 @@
+.topBtnContainer{
+  display:flex;
+  justify-content:right;
+  margin:3px;
+  height:50px;
+}
+.topBtnContainer input{
+  margin-right:3px;
+  border-radius:10px;
+  background-color:#A4ABBD;
+  border: none;
+  padding: 8px 0px;
+  font-size: 16px;
+}

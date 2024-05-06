@@ -1,4 +1,5 @@
-import { SetUser, UpdateUser, UserInfo } from "./types";
+import { RootState } from "../useStore";
+import { LogoutUser, SetUser, UpdateUser, UserInfo } from "./types";
 
 export const setUser = (payload: UserInfo): SetUser => {
   return {
@@ -15,5 +16,10 @@ export const updateUser = (payload: {
   return {
     type: '@user/updateUser',
     payload
+  }
+}
+export const logoutUser = (): LogoutUser => {
+  return {
+    type: '@user/logoutUser'
   }
 }

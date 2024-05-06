@@ -12,7 +12,7 @@ function Main(){
         <div className="MainTitleText">이든 업무 유형 테스트</div>
       </div>
       <div className="MainImg">
-        <img src="/img/img_do.png" className="MainSlideImg"/>
+        <img src="/img/kw.png" className="MainSlideImg"/>
       </div>
       <div className="MainBtn">
         <a onClick={() => handleGo('/join')} className="">회원가입</a>

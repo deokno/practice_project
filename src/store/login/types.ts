@@ -19,5 +19,6 @@ export type UpdateUser = Action<'@user/updateUser'> &{
   sameType?: string[]; // 사용자와 비슷한 유저 이름
   }
 }
+export type LogoutUser = Action<'@user/logoutUser'>;
 
-export type Actions = SetUser | UpdateUser
+export type Actions = SetUser | UpdateUser | LogoutUser

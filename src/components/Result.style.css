@@ -1,13 +1,14 @@
-/* @keyframes heartBeat {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(5);
-  }
-  100% {
-    transform: scale(1);
-  }
+/* .Logout{
+  display:flex;
+  justify-content:right;
+  margin:3px;
+}
+.Logout input{
+  background-color:#A4ABBD;
+  border: none;
+  padding: 8px 0px;
+  font-size: 18px;
+  margin-bottom: 3px;
 } */
 .ResultContainer{
   //display: flex;
@@ -16,36 +17,53 @@
   margin-top:50px;
 }
 .ResultType{
+  display:flex;
+  flex-direction: column;
   text-align:center;
+  justify-content:center;
+  align-items:center;
 }
 .ResultType h4{
   margin: 10px;
 }
 .ResultType p{
-  font-size:20px;
+  font-size:22px;
+  margin:3px;
+}
+.ResultTypeImg{
+  height:250px;
+  width:250px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.ResultTypeImg img{
+  height:250px;
 }
 .ResultRestartBtn{
   justify-content: center;
   text-align:center;
+  margin:0px;
 }
 .ResultRestartBtn a {
-  font-size:30px;
-  //animation: heartBeat 0.5s linear infinite;
+  font-size:25px;
+  color:#112A4B;
 }
 .ResultCommunity{
-  position: fixed;
+  /* position: fixed; */
   bottom: 5%;
   flex-direction: column;
   width:420px; /*좀헷갈*/
   display:flex;
   justify-content:center;
   align-items: center;
-  position: fixed;
-  font-size:15px;
+  /* position: fixed; */
+  font-size:14px;
   //bottom:30%;
   //border:1px solid black;
+  margin-bottom:60px;
 }
-.CommentList , .CommentInput{
+.CommentList, .CommentInput{
   width:100%;
 }
 .CommentList{
@@ -77,15 +95,11 @@
   right:0;
   background-color: #c1d3fe;
 }
-.ResultTypeImg{
-  width:250px;
-  height:350px;
-}
 .CommentList_content{
   display:flex;
 }
 .CommentList_content_input{
-  font-size:15px;
+  font-size:14px;
   border:none;
   background-color:#e1ecf7;
 }
