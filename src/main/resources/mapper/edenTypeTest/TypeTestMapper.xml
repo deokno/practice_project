@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.restful.edenTypeTest.mapper.TypeTestMapper">
+
+	<insert id="create" parameterType="HashMap">
+		INSERT INTO `resultUser`
+		(`type`, `userKey`) VALUES
+		(#{type},#{userKey})
+	</insert>
+	
+	<update id="updateIsComplete">
+		UPDATE `users` SET isComplete=1 WHERE userKey=#{userKey}
+ 	</update>
+	
+	<!-- 유저키가져오기 -->
+	<select id="getUserKey" resultType="String">
+	  SELECT `userKey`
+	    FROM `users`
+	   WHERE email=#{email}
+	</select>
+	
+	<!-- 같은타입 가져오기 -->
+	<select id="getSameType" resultType="String">
+	    SELECT `userName` 
+	    FROM `users` A INNER JOIN `resultUser` B ON A.userKey=B.userKey
+	    INNER JOIN `resultType` C ON B.type=C.type
+	    WHERE B.type=#{type}
+	</select>
+	
+	<select id="getResultType" resultType="String">
+	  SELECT C.resultType AS resultType
+	    FROM `users` A 
+	    INNER JOIN `resultUser` B ON A.userKey=B.userKey
+	    INNER JOIN `resultType` C ON B.type=C.type 
+	   WHERE A.userKey=#{userKey}
+	</select>
+<!-- 
+	<resultMap id="SelectResultMap" type="com.example.restful.edenTypeTest.entity.SelectResult">
+	  <result column="userKey" property="userKey" />
+	  <result column="userName" property="userName" />
+	  <result column="email" property="email" />
+	  <result column="isComplete" property="isComplete" />
+	  <result column="type" property="type" />
+	  <result column="resultType" property="resultType" />
+	  <result column="isComplete" property="isComplete" />
+	  <result column="isComplete" property="isComplete" />
+	</resultMap>
+
+	<select id="SelectUser" resultMap="SelectResultMap">
+	  SELECT `userName`,
+	         `email`,
+	         `isComplete`
+	    FROM `users`
+	   WHERE email=#{users}
+	</select>
+-->
+</mapper>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.restful.edenTypeTest.mapper.CommentsMapper">
+
+	<!-- 댓글입력 -->
+	<insert id="putComment" parameterType="HashMap">
+		INSERT INTO `comments`
+		(`userKey`, `commentText`) VALUES
+		(#{userKey},#{commentText})
+	</insert>
+	
+	<!-- 댓글리스트 -->
+	<resultMap id="commentMap" type="com.example.restful.edenTypeTest.entity.Comments">
+	  <result column="commentKey" property="commentKey" />
+	  <result column="userKey" property="userKey" />
+	  <result column="userName" property="userName" />
+	  <result column="commentText" property="commentText" />
+	  <result column="createDate" property="createDate" />
+	</resultMap>
+	<select id="getComment" resultMap="commentMap">
+		SELECT A.commentKey AS `commentKey`, A.userKey AS `userKey`, B.userName AS `userName`, A.commentText AS `commentText`, A.createdDate AS `createdDate` 
+	    FROM `comments` A INNER JOIN `users` B ON A.userKey=B.userKey
+	</select>
+
+	<!-- 댓글수정 -->
+	<update id="setComment">
+		UPDATE `comments` SET commentText = #{comment.commentText} WHERE commentKey=#{comment.commentKey}
+	</update>
+	
+	<!-- 댓글삭제 -->
+	<delete id="delComment">
+		DELETE FROM `comments` WHERE commentKey=#{comment.commentKey}
+	</delete>
+
+
+<!-- 
+<insert id="create" parameterType="HashMap">
+		INSERT INTO `resultUser`
+		(`type`, `userKey`) VALUES
+		(#{type},#{userKey})
+	</insert>
+	
+	<update id="updateIsComplete">
+		UPDATE `users` SET isComplete=1 WHERE email=#{email}
+ 	</update>
+-->
+</mapper>

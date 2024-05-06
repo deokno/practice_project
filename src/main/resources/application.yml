@@ -1,0 +1,28 @@
+# 스프링독 설정
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    use-root-path: true
+
+# 스프링 설정
+#spring:
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:test
+#    username: sa
+#    password:
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console
+
+spring:
+  datasource:
+    driver: com.mysql.cj.jdbc.Driver
+    host: jdbc:mysql://localhost:3306
+    database: test
+    username: root
+    password: qwer1234$
+  
+      
+      

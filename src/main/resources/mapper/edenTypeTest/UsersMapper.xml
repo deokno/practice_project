@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.restful.edenTypeTest.mapper.UsersMapper">
+
+	<!-- 유저키가져오기 -->
+	<select id="getUserKey" resultType="String">
+	  SELECT `userKey`
+	    FROM `users`
+	   WHERE email=#{email}
+	</select>
+
+	<insert id="joinUser">
+		INSERT INTO `users`
+		(`userName`, `email`,`password`) VALUES
+		(#{users.userName},#{users.email},#{users.password})
+	</insert>
+	
+	<select id="duplicateCheck" resultType="int">
+	  SELECT COUNT(`email`)
+	    FROM `users`
+	   WHERE email=#{email}
+	</select>
+	
+	<resultMap id="UsersMap" type="com.example.restful.edenTypeTest.entity.Users">
+	  <result column="userName" property="userName" />
+	  <result column="email" property="email" />
+	  <result column="isComplete" property="isComplete" />
+	</resultMap>
+	<select id="findUser" resultMap="UsersMap">
+	  SELECT `userKey`,
+	  		  `userName`,
+	         `email`,
+	         `isComplete`
+	    FROM `users`
+	   WHERE email=#{users.email} AND password=#{users.password}
+	</select>
+	
+	<select id="getResultType" resultType="String">
+	  SELECT C.resultType AS resultType
+	    FROM `users` A 
+	    INNER JOIN `resultUser` B ON A.userKey=B.userKey
+	    INNER JOIN `resultType` C ON B.type=C.type 
+	   WHERE A.email=#{email}
+	</select>
+
+	<select id="getSameType" resultType="String">
+	    SELECT `userName` 
+	    FROM `users` A INNER JOIN `resultUser` B ON A.userKey=B.userKey
+	    INNER JOIN `resultType` C ON B.type=C.type
+	    WHERE C.resultType=#{resultType}
+	</select>
+
+</mapper>
